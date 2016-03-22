@@ -1,0 +1,12 @@
+﻿{
+  "supports": { },
+  "dependencies": {
+    "Newtonsoft.Json": "8.0.0"
+  },
+  "frameworks": {
+    ".NETFramework,Version=v4.5": { }
+  },
+  "runtimes": {
+    "win": { }
+  }
+}

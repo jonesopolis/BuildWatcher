@@ -1,0 +1,1 @@
+c:\users\david.rector\documents\visual studio 2015\Projects\Jones.BuildWatcher\bin\Debug\Jones.BuildWatcher.exe.config
