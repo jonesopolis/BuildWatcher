@@ -23,6 +23,7 @@ namespace Jones.BuildWatcher
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new BuildVM();
         }
     }
 }

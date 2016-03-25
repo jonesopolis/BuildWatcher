@@ -2,7 +2,15 @@
   "locked": false,
   "version": 1,
   "targets": {
-    ".NETFramework,Version=v4.5": {
+    ".NETFramework,Version=v4.6": {
+      "Jones.Utilities/1.0.0-CI00001": {
+        "compile": {
+          "lib/net46/Jones.Utilities.dll": {}
+        },
+        "runtime": {
+          "lib/net46/Jones.Utilities.dll": {}
+        }
+      },
       "Newtonsoft.Json/8.0.1": {
         "compile": {
           "lib/net45/Newtonsoft.Json.dll": {}
@@ -12,7 +20,15 @@
         }
       }
     },
-    ".NETFramework,Version=v4.5/win": {
+    ".NETFramework,Version=v4.6/win": {
+      "Jones.Utilities/1.0.0-CI00001": {
+        "compile": {
+          "lib/net46/Jones.Utilities.dll": {}
+        },
+        "runtime": {
+          "lib/net46/Jones.Utilities.dll": {}
+        }
+      },
       "Newtonsoft.Json/8.0.1": {
         "compile": {
           "lib/net45/Newtonsoft.Json.dll": {}
@@ -24,6 +40,17 @@
     }
   },
   "libraries": {
+    "Jones.Utilities/1.0.0-CI00001": {
+      "sha512": "4K6nD32EB8cxam+NkCDs9zXkDh+zXMwaPPQCwa51CQWjH9uHHPqh1uc4ISzRsSOVA97j9/mSQLA71N4uXWIJ/g==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "Jones.Utilities.nuspec",
+        "lib/net46/Jones.Utilities.dll",
+        "package/services/metadata/core-properties/a6d806ef7e9f41898ef820027fdcaaa1.psmdcp"
+      ]
+    },
     "Newtonsoft.Json/8.0.1": {
       "sha512": "qFzqzune1D7hDz8kNavFwrJ0fv8qkwANGyUOPjP0I67DmNH04nmSCRB0g0LCIqogMKrBXjsiP43Z0E1huBvxOg==",
       "type": "Package",
@@ -50,8 +77,9 @@
   },
   "projectFileDependencyGroups": {
     "": [
+      "Jones.Utilities >= 1.0.0-CI00001",
       "Newtonsoft.Json >= 8.0.0"
     ],
-    ".NETFramework,Version=v4.5": []
+    ".NETFramework,Version=v4.6": []
   }
 }

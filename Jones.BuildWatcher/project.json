@@ -1,12 +1,13 @@
 ﻿{
-  "supports": { },
+  "supports": {},
   "dependencies": {
+    "Jones.Utilities": "1.0.0-CI00001",
     "Newtonsoft.Json": "8.0.0"
   },
   "frameworks": {
-    ".NETFramework,Version=v4.5": { }
+    ".NETFramework,Version=v4.6": {}
   },
   "runtimes": {
-    "win": { }
+    "win": {}
   }
 }

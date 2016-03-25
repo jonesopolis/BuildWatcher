@@ -1,4 +1,5 @@
 ﻿using System;
+using Jones.Utilities;
 
 namespace Jones.BuildWatcher
 {
@@ -12,25 +13,25 @@ namespace Jones.BuildWatcher
         public string BuildName
         {
             get { return _buildName; }
-            set { SetProperty(nameof(BuildName), ref _buildName, value); }
+            set { SetProperty(ref _buildName, value); }
         }
 
         public DateTime? LastCompleted
         {
             get { return _lastCompleted; }
-            set { SetProperty(nameof(LastCompleted), ref _lastCompleted, value); }
+            set { SetProperty(ref _lastCompleted, value); }
         }
 
         public string PersonName
         {
             get { return _personName; }
-            set { SetProperty(nameof(PersonName), ref _personName, value); }
+            set { SetProperty(ref _personName, value); }
         }
 
         public bool Success
         {
             get { return _success; }
-            set { SetProperty(nameof(Success), ref _success, value); }
+            set { SetProperty(ref _success, value); }
         }
     }
 }
