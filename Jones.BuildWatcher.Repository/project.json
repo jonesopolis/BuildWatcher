@@ -1,0 +1,12 @@
+﻿{
+  "supports": { },
+  "dependencies": {
+    "Jones.Utilities": "1.0.0-CI00001"
+  },
+  "frameworks": {
+    ".net46": { }
+  },
+  "runtimes": {
+    "win": { }
+  }
+}

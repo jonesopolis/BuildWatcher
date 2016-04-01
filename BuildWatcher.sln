@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jones.BuildWatcher", "Jones.BuildWatcher\Jones.BuildWatcher.csproj", "{110049F2-B6ED-4924-8D3E-36F4A2E531D8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jones.BuildWatcher.Model", "Jones.BuildWatcher.Model\Jones.BuildWatcher.Model.csproj", "{BD14F492-525F-4944-B710-2F3A1CBAA40A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jones.BuildWatcher.Repository", "Jones.BuildWatcher.Repository\Jones.BuildWatcher.Repository.csproj", "{21D14C4D-BB28-44F4-8CFC-28CFCA066CDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,17 +19,16 @@ Global
 		{110049F2-B6ED-4924-8D3E-36F4A2E531D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{110049F2-B6ED-4924-8D3E-36F4A2E531D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{110049F2-B6ED-4924-8D3E-36F4A2E531D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD14F492-525F-4944-B710-2F3A1CBAA40A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD14F492-525F-4944-B710-2F3A1CBAA40A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD14F492-525F-4944-B710-2F3A1CBAA40A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD14F492-525F-4944-B710-2F3A1CBAA40A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21D14C4D-BB28-44F4-8CFC-28CFCA066CDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21D14C4D-BB28-44F4-8CFC-28CFCA066CDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21D14C4D-BB28-44F4-8CFC-28CFCA066CDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21D14C4D-BB28-44F4-8CFC-28CFCA066CDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 2
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://sk00mba.visualstudio.com/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Jones.BuildWatcher\\Jones.BuildWatcher.csproj
-		SccProjectName1 = Jones.BuildWatcher
-		SccLocalPath1 = Jones.BuildWatcher
 	EndGlobalSection
 EndGlobal

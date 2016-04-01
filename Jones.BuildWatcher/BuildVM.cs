@@ -4,32 +4,38 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Timers;
+using Jones.BuildWatcher.Model;
+using Jones.BuildWatcher.Repository;
 using Jones.Utilities;
-
-//using Microsoft.TeamFoundation.Build.Client;
-//using Microsoft.TeamFoundation.Client;
+using Microsoft.TeamFoundation.Build.Client;
+using Microsoft.TeamFoundation.Client;
 
 namespace Jones.BuildWatcher
 {
     public sealed class BuildVM : NotifyBase
     {
+        private readonly IBuildRepository _buildRepo;
         private readonly LiveConfig<IEnumerable<BuildConfiguration>> _liveConfig;
         private readonly Uri _uri = new Uri("http://tfs.csiweb.com:8080/tfs/DefaultCollection");
-        private IEnumerable<BuildConfiguration> _config;
+        private Queue<Build> _queue;
         private Timer _timer;
-        //private readonly TfsTeamProjectCollection _tfs;
 
-        public BuildVM()
+        public BuildVM(IBuildRepository buildRepo)
         {
+            if (buildRepo == null)
+            {
+                throw new ArgumentNullException(nameof(buildRepo));
+            }
+
+            _buildRepo = buildRepo;
+
             try
             {
                 _liveConfig = new LiveConfig<IEnumerable<BuildConfiguration>>("Configuration/config.json");
                 _liveConfig.Changed += initializeItems;
-                _liveConfig.Unavailable += () => _config = null;
+                _liveConfig.Unavailable += () => { };
                 _liveConfig.Watch();
-
-                //_tfs = new TfsTeamProjectCollection(_uri);
-
+                
 
                 _timer = new Timer();
                 _timer.Interval = 1000;
@@ -42,24 +48,22 @@ namespace Jones.BuildWatcher
             }
         }
 
-        public ObservableCollection<BuildModel> Items { get; } = new ObservableCollection<BuildModel>();
+        public ObservableCollection<Build> Items { get; } = new ObservableCollection<Build>();
 
         private void initializeItems()
         {
-            _config = _liveConfig.Configuration;
-
-            foreach (var build in _config.SelectMany(c => c.Builds))
+            foreach (var build in _liveConfig.Configuration.SelectMany(c => c.Builds))
             {
-                var model = new BuildModel();
+                var model = new Build();
                 model.BuildName = build.Value;
                 model.PersonName = "N/A";
-                model.Success = false;
+                model.IsGreen = false;
             }
         }
 
         private void poll(object sender, ElapsedEventArgs elapsedEventArgs)
     {
-            if (_config == null)
+            if (_liveConfig.Configuration == null)
             {
                 return;
             }
@@ -71,26 +75,6 @@ namespace Jones.BuildWatcher
             }
 
             Console.WriteLine();
-
-            //var buildServer = _tfs.GetService<IBuildServer>();
-
-            //foreach (var configProject in _config)
-            //{
-            //    foreach (var configBuild in configProject.Builds)
-            //    {
-            //        var spec = buildServer.CreateBuildDetailSpec(configProject.ProjectName, configBuild.Key);
-            //        spec.MaxBuildsPerDefinition = 1;
-            //        spec.QueryOrder = BuildQueryOrder.FinishTimeDescending;
-
-            //        var build = buildServer.QueryBuilds(spec);
-
-            //        if (build.Builds.Any())
-            //        {
-            //            var buildDetail = build.Builds[0];
-            //            Trace.WriteLine($"{configBuild.Value} - {buildDetail.Status} - {buildDetail.FinishTime} - {buildDetail.RequestedFor}");
-            //        }
-            //    }
-            //}
         }
     }
 }

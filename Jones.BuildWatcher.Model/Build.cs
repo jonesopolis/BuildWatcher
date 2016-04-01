@@ -1,14 +1,14 @@
 ﻿using System;
 using Jones.Utilities;
 
-namespace Jones.BuildWatcher
+namespace Jones.BuildWatcher.Model
 {
-    public sealed class BuildModel : NotifyBase
+    public sealed class Build : NotifyBase
     {
         private string _buildName;
         private DateTime? _lastCompleted;
         private string _personName;
-        private bool _success;
+        private bool _isGreen;
 
         public string BuildName
         {
@@ -28,10 +28,10 @@ namespace Jones.BuildWatcher
             set { SetProperty(ref _personName, value); }
         }
 
-        public bool Success
+        public bool IsGreen
         {
-            get { return _success; }
-            set { SetProperty(ref _success, value); }
+            get { return _isGreen; }
+            set { SetProperty(ref _isGreen, value); }
         }
     }
 }

@@ -2,10 +2,12 @@
   "supports": {},
   "dependencies": {
     "Jones.Utilities": "1.0.0-CI00001",
-    "Newtonsoft.Json": "8.0.0"
+    "Newtonsoft.Json": "8.0.0",
+    "Unity": "4.0.1",
+    "Moq": "4.2.1510.2205"
   },
   "frameworks": {
-    ".NETFramework,Version=v4.6": {}
+    ".net46": {}
   },
   "runtimes": {
     "win": {}

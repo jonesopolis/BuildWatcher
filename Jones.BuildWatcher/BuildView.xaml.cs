@@ -16,14 +16,14 @@ using System.Windows.Shapes;
 namespace Jones.BuildWatcher
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for BuildView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class BuildView : Window
     {
-        public MainWindow()
+        public BuildView(BuildVM vm)
         {
             InitializeComponent();
-            DataContext = new BuildVM();
+            DataContext = vm;
         }
     }
 }

@@ -1,0 +1,44 @@
+{
+  "locked": false,
+  "version": 1,
+  "targets": {
+    ".NETFramework,Version=v4.6": {
+      "Jones.Utilities/1.0.0-CI00001": {
+        "compile": {
+          "lib/net46/Jones.Utilities.dll": {}
+        },
+        "runtime": {
+          "lib/net46/Jones.Utilities.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.6/win": {
+      "Jones.Utilities/1.0.0-CI00001": {
+        "compile": {
+          "lib/net46/Jones.Utilities.dll": {}
+        },
+        "runtime": {
+          "lib/net46/Jones.Utilities.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Jones.Utilities/1.0.0-CI00001": {
+      "sha512": "4K6nD32EB8cxam+NkCDs9zXkDh+zXMwaPPQCwa51CQWjH9uHHPqh1uc4ISzRsSOVA97j9/mSQLA71N4uXWIJ/g==",
+      "type": "package",
+      "files": [
+        "Jones.Utilities.1.0.0-CI00001.nupkg",
+        "Jones.Utilities.1.0.0-CI00001.nupkg.sha512",
+        "Jones.Utilities.nuspec",
+        "lib/net46/Jones.Utilities.dll"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "": [
+      "Jones.Utilities >= 1.0.0-CI00001"
+    ],
+    ".NETFramework,Version=v4.6": []
+  }
+}
