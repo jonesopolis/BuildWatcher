@@ -69,7 +69,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Page Include="BuildView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -78,9 +78,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="BuildVM.cs" />
+    <Compile Include="ColorValueConverter.cs" />
     <Compile Include="Configuration\BuildConfiguration.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="BuildView.xaml.cs">
+      <DependentUpon>BuildView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -103,6 +104,9 @@
       <Project>{21d14c4d-bb28-44f4-8cfc-28cfca066cda}</Project>
       <Name>Jones.BuildWatcher.Repository</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Background.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

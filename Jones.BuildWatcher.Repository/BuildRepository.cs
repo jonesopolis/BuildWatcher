@@ -26,11 +26,11 @@ namespace Jones.BuildWatcher.Repository
         }
 
 
-        public Build GetBuildResults(Tuple<string, string> build)
+        public Build GetBuildResults(string project, string build)
         {
             var buildServer = _tfs.GetService<IBuildServer>();
 
-            var spec = buildServer.CreateBuildDetailSpec(build.Item1, build.Item2);
+            var spec = buildServer.CreateBuildDetailSpec(project, build);
             spec.MaxBuildsPerDefinition = 1;
             spec.QueryOrder = BuildQueryOrder.FinishTimeDescending;
 
@@ -41,7 +41,7 @@ namespace Jones.BuildWatcher.Repository
                 var buildDetail = results.Builds[0];
                 
                 var b = new Build();
-                b.BuildName = build.Item2;
+                b.BuildName = build;
                 b.IsGreen = buildDetail.Status == BuildStatus.Succeeded;
                 b.LastCompleted = buildDetail.FinishTime;
                 b.PersonName = buildDetail.RequestedFor;

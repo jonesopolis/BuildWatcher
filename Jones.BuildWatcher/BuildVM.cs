@@ -1,24 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Linq;
 using System.Timers;
 using Jones.BuildWatcher.Model;
 using Jones.BuildWatcher.Repository;
 using Jones.Utilities;
-using Microsoft.TeamFoundation.Build.Client;
-using Microsoft.TeamFoundation.Client;
 
 namespace Jones.BuildWatcher
 {
     public sealed class BuildVM : NotifyBase
     {
         private readonly IBuildRepository _buildRepo;
-        private readonly LiveConfig<IEnumerable<BuildConfiguration>> _liveConfig;
-        private readonly Uri _uri = new Uri("http://tfs.csiweb.com:8080/tfs/DefaultCollection");
-        private Queue<Build> _queue;
-        private Timer _timer;
+        private readonly LiveConfig<List<BuildConfiguration>> _liveConfig;
+        private readonly Queue<Tuple<string,string>> _queue;
+        private readonly Timer _timer;
+        private Build _currentBuild;
 
         public BuildVM(IBuildRepository buildRepo)
         {
@@ -28,18 +25,19 @@ namespace Jones.BuildWatcher
             }
 
             _buildRepo = buildRepo;
+            _queue = new Queue<Tuple<string, string>>();
+            Items = new ObservableCollection<Build>();
 
             try
             {
-                _liveConfig = new LiveConfig<IEnumerable<BuildConfiguration>>("Configuration/config.json");
+                _liveConfig = new LiveConfig<List<BuildConfiguration>>("Configuration/config.json");
                 _liveConfig.Changed += initializeItems;
                 _liveConfig.Unavailable += () => { };
                 _liveConfig.Watch();
-                
 
                 _timer = new Timer();
-                _timer.Interval = 1000;
-                _timer.Elapsed += poll;
+                _timer.Interval = 2000;
+                _timer.Elapsed += change;
                 _timer.Start();
             }
             catch (Exception ex)
@@ -48,33 +46,34 @@ namespace Jones.BuildWatcher
             }
         }
 
-        public ObservableCollection<Build> Items { get; } = new ObservableCollection<Build>();
+        public Build CurrentBuild
+        {
+            get { return _currentBuild; }
+            set { SetProperty(ref _currentBuild, value); }
+        }
+
+        public ObservableCollection<Build> Items { get; } 
+
+        private void change(object sender, ElapsedEventArgs elapsedEventArgs)
+        {
+            var item = _queue.Dequeue();
+            
+            CurrentBuild = _buildRepo.GetBuildResults(item.Item1, item.Item2);
+
+            _queue.Enqueue(item);
+        }
 
         private void initializeItems()
         {
-            foreach (var build in _liveConfig.Configuration.SelectMany(c => c.Builds))
-            {
-                var model = new Build();
-                model.BuildName = build.Value;
-                model.PersonName = "N/A";
-                model.IsGreen = false;
-            }
-        }
+            _queue.Clear();
 
-        private void poll(object sender, ElapsedEventArgs elapsedEventArgs)
-    {
-            if (_liveConfig.Configuration == null)
+            foreach (var project in _liveConfig.Configuration)
             {
-                return;
+                foreach (var build in project.Builds)
+                {
+                    _queue.Enqueue(new Tuple<string, string>(project.ProjectName, build.Key));   
+                }
             }
-
-            foreach (var item in _config)
-            {
-                Trace.WriteLine(item.ProjectName);
-                Trace.WriteLine("\t" + string.Join(", ", item.Builds.Select(b => b.Value)));
-            }
-
-            Console.WriteLine();
         }
     }
 }
