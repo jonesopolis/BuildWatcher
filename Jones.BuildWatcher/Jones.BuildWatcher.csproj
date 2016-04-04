@@ -69,6 +69,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="TimeStringConverter.cs" />
     <Page Include="BuildView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
