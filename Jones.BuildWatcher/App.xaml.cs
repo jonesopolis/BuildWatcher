@@ -49,7 +49,7 @@ namespace Jones.BuildWatcher
                 {
                     var rand = new Random();
 
-                    var b = new Build();
+                    var b = new Build(one, two, "test test");
                     b.BuildName = two;
                     b.PersonName = names[rand.Next(0, names.Count() - 1)];
                     b.LastCompleted = DateTime.Now.AddDays(-1 * rand.Next(0, 3)).AddHours(rand.Next(0, 10)).AddMinutes(rand.Next(0,60));

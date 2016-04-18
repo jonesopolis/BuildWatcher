@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Timers;
 using Jones.BuildWatcher.Model;
@@ -84,7 +85,6 @@ namespace Jones.BuildWatcher
             var result = _buildRepo.GetSingleBuild(Items[_currentIndex].ProjectName, Items[_currentIndex].BuildName);
 
             Items[_currentIndex] = result;
-            Items[_currentIndex].FriendlyName = 
         }
 
         private void initializeItems()
