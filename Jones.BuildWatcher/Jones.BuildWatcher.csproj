@@ -69,6 +69,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BuildConfig.cs" />
     <Compile Include="TimeStringConverter.cs" />
     <Page Include="BuildView.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -80,7 +81,6 @@
     </Compile>
     <Compile Include="BuildVM.cs" />
     <Compile Include="ColorValueConverter.cs" />
-    <Compile Include="Configuration\BuildConfiguration.cs" />
     <Compile Include="BuildView.xaml.cs">
       <DependentUpon>BuildView.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -90,7 +90,7 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <None Include="Configuration\config.json">
+    <None Include="config.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="project.json" />

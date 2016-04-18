@@ -11,6 +11,22 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
+      "Jones.FileLogger/1.0.0-CI00004": {
+        "compile": {
+          "lib/net452/Jones.FileLogger.dll": {}
+        },
+        "runtime": {
+          "lib/net452/Jones.FileLogger.dll": {}
+        }
+      },
+      "Jones.Logger/1.0.0-CI00004": {
+        "compile": {
+          "lib/net452/Jones.Logger.dll": {}
+        },
+        "runtime": {
+          "lib/net452/Jones.Logger.dll": {}
+        }
+      },
       "Jones.Utilities/1.0.0-CI00001": {
         "compile": {
           "lib/net46/Jones.Utilities.dll": {}
@@ -58,6 +74,22 @@
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        }
+      },
+      "Jones.FileLogger/1.0.0-CI00004": {
+        "compile": {
+          "lib/net452/Jones.FileLogger.dll": {}
+        },
+        "runtime": {
+          "lib/net452/Jones.FileLogger.dll": {}
+        }
+      },
+      "Jones.Logger/1.0.0-CI00004": {
+        "compile": {
+          "lib/net452/Jones.Logger.dll": {}
+        },
+        "runtime": {
+          "lib/net452/Jones.Logger.dll": {}
         }
       },
       "Jones.Utilities/1.0.0-CI00001": {
@@ -112,6 +144,28 @@
         "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll",
         "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.pdb",
         "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.XML"
+      ]
+    },
+    "Jones.FileLogger/1.0.0-CI00004": {
+      "sha512": "56YoTmV2+Igu/g8EBaSOZgcaaSdoycl21De/4TD0qNKI2GPBxAYp4f5zGqqKXsW5VRLXuvWc57zTY4h3ITGjsg==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "Jones.FileLogger.nuspec",
+        "lib/net452/Jones.FileLogger.dll",
+        "package/services/metadata/core-properties/0272c0bbfb784632b0a94904c6dae264.psmdcp"
+      ]
+    },
+    "Jones.Logger/1.0.0-CI00004": {
+      "sha512": "nBv+qMefpIYyQH6zBa9eqD1wNpejyQsC3Rf6vTNzd1ycPg1ljjTZJQ5AWZVf2d7hNGhVs2jgpg8wFu5SJ//7bA==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "Jones.Logger.nuspec",
+        "lib/net452/Jones.Logger.dll",
+        "package/services/metadata/core-properties/9221150326204309812c6a58ebdc56bc.psmdcp"
       ]
     },
     "Jones.Utilities/1.0.0-CI00001": {
@@ -191,6 +245,8 @@
   },
   "projectFileDependencyGroups": {
     "": [
+      "Jones.FileLogger >= 1.0.0-CI00004",
+      "Jones.Logger >= 1.0.0-CI00004",
       "Jones.Utilities >= 1.0.0-CI00001",
       "Moq >= 4.2.1510.2205",
       "Newtonsoft.Json >= 8.0.0",

@@ -26,7 +26,7 @@ namespace Jones.BuildWatcher.Repository
         }
 
 
-        public Build GetBuildResults(string project, string build)
+        public Build GetSingleBuild(string project, string build)
         {
             var buildServer = _tfs.GetService<IBuildServer>();
 
@@ -40,8 +40,7 @@ namespace Jones.BuildWatcher.Repository
             {
                 var buildDetail = results.Builds[0];
                 
-                var b = new Build();
-                b.BuildName = build;
+                var b = new Build(project, build);
                 b.IsGreen = buildDetail.Status == BuildStatus.Succeeded;
                 b.LastCompleted = buildDetail.FinishTime;
                 b.PersonName = buildDetail.RequestedFor;

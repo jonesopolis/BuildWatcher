@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows;
 using Jones.BuildWatcher.Model;
 using Jones.BuildWatcher.Repository;
+using Jones.Logger;
 using Microsoft.Practices.Unity;
 using Moq;
 
@@ -15,12 +16,15 @@ namespace Jones.BuildWatcher
         {
             IUnityContainer unity = new UnityContainer();
 
-            var instance = false
+            var repository = false
                 ? new BuildRepository("http://tfs.csiweb.com:8080/tfs/DefaultCollection")
                 : getMock();
-
-            unity.RegisterInstance(instance);
             
+            Logger.Logger logger = new FileLogger.FileLogger("log.txt", LogLevel.Info);
+
+            unity.RegisterInstance(repository);
+            unity.RegisterInstance(logger, new ContainerControlledLifetimeManager());
+
             var window = new BuildView(unity.Resolve<BuildVM>());
             window.Show();
         }
@@ -40,7 +44,7 @@ namespace Jones.BuildWatcher
                                         };
 
 
-            mock.Setup(r => r.GetBuildResults(It.IsAny<string>(), It.IsAny<string>()))
+            mock.Setup(r => r.GetSingleBuild(It.IsAny<string>(), It.IsAny<string>()))
                 .Returns<string, string>((one, two) =>
                 {
                     var rand = new Random();

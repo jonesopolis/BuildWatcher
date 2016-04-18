@@ -6,6 +6,7 @@ using System.Linq;
 using System.Timers;
 using Jones.BuildWatcher.Model;
 using Jones.BuildWatcher.Repository;
+using Jones.Logger;
 using Jones.Utilities;
 
 namespace Jones.BuildWatcher
@@ -13,57 +14,53 @@ namespace Jones.BuildWatcher
     public sealed class BuildVM : NotifyBase
     {
         private readonly IBuildRepository _buildRepo;
-        private readonly LiveConfig<List<BuildConfiguration>> _liveConfig;
-        private readonly Queue<Tuple<string,string>> _queue;
-        private readonly Timer _timer;
-        private readonly Timer _dateTimer;
-        private Build _currentBuild;
+        private readonly Logger.Logger _logger;
+        private readonly LiveConfig<List<BuildConfig>> _liveConfig;
+        private int  _currentIndex;
         private DateTime _currentTime;
 
-        public BuildVM(IBuildRepository buildRepo)
+        public BuildVM(IBuildRepository buildRepo, Logger.Logger logger)
         {
             if (buildRepo == null)
             {
                 throw new ArgumentNullException(nameof(buildRepo));
             }
+            if (logger == null)
+            {
+                throw new ArgumentNullException(nameof(logger));
+            }
 
             _buildRepo = buildRepo;
-            _queue = new Queue<Tuple<string, string>>();
+            _logger = logger;
             Items = new ObservableCollection<Build>();
 
             try
             {
-                _liveConfig = new LiveConfig<List<BuildConfiguration>>("Configuration/config.json");
+                _liveConfig = new LiveConfig<List<BuildConfig>>("config.json");
                 _liveConfig.Changed += initializeItems;
                 _liveConfig.Unavailable += () =>
                 {
-                    _queue.Clear();
-                    CurrentBuild = null;
+                    Items.Clear();
+                    _currentIndex = 0;
                 };
                 _liveConfig.Watch();
 
-                _timer = new Timer();
-                _timer.Interval = 2000;
-                _timer.Elapsed += change;
-                _timer.Start();
+                var timer = new Timer();
+                timer.Interval = 2000;
+                timer.Elapsed += change;
+                timer.Start();
 
-                _dateTimer = new Timer();
-                _dateTimer.Interval = 1000;
-                _dateTimer.Elapsed += (s, e) => CurrentTime = DateTime.Now;
-                _dateTimer.Start();
+                var dateTimer = new Timer();
+                dateTimer.Interval = 1000;
+                dateTimer.Elapsed += (s, e) => CurrentTime = DateTime.Now;
+                dateTimer.Start();
             }
             catch (Exception ex)
             {
-                //TODO
+                _logger.Log(LogLevel.Info, ex);
             }
         }
-
-        public Build CurrentBuild
-        {
-            get { return _currentBuild; }
-            set { SetProperty(ref _currentBuild, value); }
-        }
-
+        
         public DateTime CurrentTime
         {
             get { return _currentTime; }
@@ -74,28 +71,30 @@ namespace Jones.BuildWatcher
 
         private void change(object sender, ElapsedEventArgs elapsedEventArgs)
         {
-            if (!_queue.Any())
+            if (!Items.Any())
             {
                 return;
             }
 
-            var item = _queue.Dequeue();
+            if (++_currentIndex == Items.Count)
+            {
+                _currentIndex = 0;
+            }
             
-            CurrentBuild = _buildRepo.GetBuildResults(item.Item1, item.Item2);
+            var result = _buildRepo.GetSingleBuild(Items[_currentIndex].ProjectName, Items[_currentIndex].BuildName);
 
-            _queue.Enqueue(item);
+            Items[_currentIndex] = result;
+            Items[_currentIndex].FriendlyName = 
         }
 
         private void initializeItems()
         {
-            _queue.Clear();
+            Items.Clear();
+            _currentIndex = 0;
 
-            foreach (var project in _liveConfig.Configuration)
+            foreach (var item in _liveConfig.Configuration)
             {
-                foreach (var build in project.Builds)
-                {
-                    _queue.Enqueue(new Tuple<string, string>(project.ProjectName, build.Key));   
-                }
+                Items.Add(new Build(item.Project, item.Build, item.FriendlyName));                   
             }
         }
     }

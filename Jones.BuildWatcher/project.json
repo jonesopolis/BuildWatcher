@@ -1,10 +1,12 @@
 ﻿{
   "supports": {},
   "dependencies": {
+    "Jones.FileLogger": "1.0.0-CI00004",
+    "Jones.Logger": "1.0.0-CI00004",
     "Jones.Utilities": "1.0.0-CI00001",
+    "Moq": "4.2.1510.2205",
     "Newtonsoft.Json": "8.0.0",
-    "Unity": "4.0.1",
-    "Moq": "4.2.1510.2205"
+    "Unity": "4.0.1"
   },
   "frameworks": {
     ".net46": {}

@@ -8,6 +8,6 @@ namespace Jones.BuildWatcher.Repository
 {
     public interface IBuildRepository
     {
-        Build GetBuildResults(string project, string build);
+        Build GetSingleBuild(string project, string build);
     }
 }
