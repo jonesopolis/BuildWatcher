@@ -27,7 +27,7 @@
           "lib/net452/Jones.Logger.dll": {}
         }
       },
-      "Jones.Utilities/1.0.0-CI00001": {
+      "Jones.Utilities/1.0.0-CI00003": {
         "compile": {
           "lib/net46/Jones.Utilities.dll": {}
         },
@@ -43,7 +43,7 @@
           "lib/net40/Moq.dll": {}
         }
       },
-      "Newtonsoft.Json/8.0.1": {
+      "Newtonsoft.Json/8.0.3": {
         "compile": {
           "lib/net45/Newtonsoft.Json.dll": {}
         },
@@ -53,17 +53,17 @@
       },
       "Unity/4.0.1": {
         "dependencies": {
-          "CommonServiceLocator": "[1.3.0, )"
+          "CommonServiceLocator": "1.3.0"
         },
         "compile": {
           "lib/net45/Microsoft.Practices.Unity.Configuration.dll": {},
-          "lib/net45/Microsoft.Practices.Unity.dll": {},
-          "lib/net45/Microsoft.Practices.Unity.RegistrationByConvention.dll": {}
+          "lib/net45/Microsoft.Practices.Unity.RegistrationByConvention.dll": {},
+          "lib/net45/Microsoft.Practices.Unity.dll": {}
         },
         "runtime": {
           "lib/net45/Microsoft.Practices.Unity.Configuration.dll": {},
-          "lib/net45/Microsoft.Practices.Unity.dll": {},
-          "lib/net45/Microsoft.Practices.Unity.RegistrationByConvention.dll": {}
+          "lib/net45/Microsoft.Practices.Unity.RegistrationByConvention.dll": {},
+          "lib/net45/Microsoft.Practices.Unity.dll": {}
         }
       }
     },
@@ -92,7 +92,7 @@
           "lib/net452/Jones.Logger.dll": {}
         }
       },
-      "Jones.Utilities/1.0.0-CI00001": {
+      "Jones.Utilities/1.0.0-CI00003": {
         "compile": {
           "lib/net46/Jones.Utilities.dll": {}
         },
@@ -108,7 +108,7 @@
           "lib/net40/Moq.dll": {}
         }
       },
-      "Newtonsoft.Json/8.0.1": {
+      "Newtonsoft.Json/8.0.3": {
         "compile": {
           "lib/net45/Newtonsoft.Json.dll": {}
         },
@@ -118,17 +118,17 @@
       },
       "Unity/4.0.1": {
         "dependencies": {
-          "CommonServiceLocator": "[1.3.0, )"
+          "CommonServiceLocator": "1.3.0"
         },
         "compile": {
           "lib/net45/Microsoft.Practices.Unity.Configuration.dll": {},
-          "lib/net45/Microsoft.Practices.Unity.dll": {},
-          "lib/net45/Microsoft.Practices.Unity.RegistrationByConvention.dll": {}
+          "lib/net45/Microsoft.Practices.Unity.RegistrationByConvention.dll": {},
+          "lib/net45/Microsoft.Practices.Unity.dll": {}
         },
         "runtime": {
           "lib/net45/Microsoft.Practices.Unity.Configuration.dll": {},
-          "lib/net45/Microsoft.Practices.Unity.dll": {},
-          "lib/net45/Microsoft.Practices.Unity.RegistrationByConvention.dll": {}
+          "lib/net45/Microsoft.Practices.Unity.RegistrationByConvention.dll": {},
+          "lib/net45/Microsoft.Practices.Unity.dll": {}
         }
       }
     }
@@ -141,18 +141,18 @@
         "CommonServiceLocator.1.3.0.nupkg",
         "CommonServiceLocator.1.3.0.nupkg.sha512",
         "CommonServiceLocator.nuspec",
+        "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.XML",
         "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll",
-        "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.pdb",
-        "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.XML"
+        "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.pdb"
       ]
     },
     "Jones.FileLogger/1.0.0-CI00004": {
       "sha512": "56YoTmV2+Igu/g8EBaSOZgcaaSdoycl21De/4TD0qNKI2GPBxAYp4f5zGqqKXsW5VRLXuvWc57zTY4h3ITGjsg==",
       "type": "Package",
       "files": [
+        "Jones.FileLogger.nuspec",
         "[Content_Types].xml",
         "_rels/.rels",
-        "Jones.FileLogger.nuspec",
         "lib/net452/Jones.FileLogger.dll",
         "package/services/metadata/core-properties/0272c0bbfb784632b0a94904c6dae264.psmdcp"
       ]
@@ -161,19 +161,18 @@
       "sha512": "nBv+qMefpIYyQH6zBa9eqD1wNpejyQsC3Rf6vTNzd1ycPg1ljjTZJQ5AWZVf2d7hNGhVs2jgpg8wFu5SJ//7bA==",
       "type": "Package",
       "files": [
+        "Jones.Logger.nuspec",
         "[Content_Types].xml",
         "_rels/.rels",
-        "Jones.Logger.nuspec",
         "lib/net452/Jones.Logger.dll",
         "package/services/metadata/core-properties/9221150326204309812c6a58ebdc56bc.psmdcp"
       ]
     },
-    "Jones.Utilities/1.0.0-CI00001": {
-      "sha512": "4K6nD32EB8cxam+NkCDs9zXkDh+zXMwaPPQCwa51CQWjH9uHHPqh1uc4ISzRsSOVA97j9/mSQLA71N4uXWIJ/g==",
+    "Jones.Utilities/1.0.0-CI00003": {
+      "sha512": "b5pN7mU7LWrJaxlmeEOnCnDg6A/OgOld+HvE36QKdBDkdKBvaWSw9gHey94qozJxJPVl28EHf13bLi1QKWoQag==",
       "type": "package",
       "files": [
-        "Jones.Utilities.1.0.0-CI00001.nupkg",
-        "Jones.Utilities.1.0.0-CI00001.nupkg.sha512",
+        "Jones.Utilities.1.0.0-CI00003.nupkg.sha512",
         "Jones.Utilities.nuspec",
         "lib/net46/Jones.Utilities.dll"
       ]
@@ -182,21 +181,23 @@
       "sha512": "nqMoHSP5f04/kyKbRUjGgzqtIb5LUUs0H6llHOkQJ5Takx4Ezr2H+59pkIgxkmpbHAcGmc/KsyRZUs1ehnPYag==",
       "type": "package",
       "files": [
+        "Moq.4.2.1510.2205.nupkg",
+        "Moq.4.2.1510.2205.nupkg.sha512",
+        "Moq.nuspec",
         "lib/net35/Moq.dll",
         "lib/net35/Moq.xml",
         "lib/net40/Moq.dll",
         "lib/net40/Moq.xml",
         "lib/sl5/Moq.Silverlight.dll",
-        "lib/sl5/Moq.Silverlight.xml",
-        "Moq.4.2.1510.2205.nupkg",
-        "Moq.4.2.1510.2205.nupkg.sha512",
-        "Moq.nuspec"
+        "lib/sl5/Moq.Silverlight.xml"
       ]
     },
-    "Newtonsoft.Json/8.0.1": {
-      "sha512": "qFzqzune1D7hDz8kNavFwrJ0fv8qkwANGyUOPjP0I67DmNH04nmSCRB0g0LCIqogMKrBXjsiP43Z0E1huBvxOg==",
+    "Newtonsoft.Json/8.0.3": {
+      "sha512": "KGsYQdS2zLH+H8x2cZaSI7e+YZ4SFIbyy1YJQYl6GYBWjf5o4H1A68nxyq+WTyVSOJQ4GqS/DiPE+UseUizgMg==",
       "type": "package",
       "files": [
+        "Newtonsoft.Json.8.0.3.nupkg.sha512",
+        "Newtonsoft.Json.nuspec",
         "lib/net20/Newtonsoft.Json.dll",
         "lib/net20/Newtonsoft.Json.xml",
         "lib/net35/Newtonsoft.Json.dll",
@@ -209,9 +210,6 @@
         "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.xml",
         "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll",
         "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.xml",
-        "Newtonsoft.Json.8.0.1.nupkg",
-        "Newtonsoft.Json.8.0.1.nupkg.sha512",
-        "Newtonsoft.Json.nuspec",
         "tools/install.ps1"
       ]
     },
@@ -219,27 +217,27 @@
       "sha512": "RHFTCW13E186hCI0Z4R47tl2SyxQOp3TNaBlilxKktO+u+NUWyOK/nPJ25PWwgPh4j4/GM46PQszSsusui+ikw==",
       "type": "package",
       "files": [
-        "lib/net45/Microsoft.Practices.Unity.Configuration.dll",
-        "lib/net45/Microsoft.Practices.Unity.Configuration.XML",
-        "lib/net45/Microsoft.Practices.Unity.dll",
-        "lib/net45/Microsoft.Practices.Unity.RegistrationByConvention.dll",
-        "lib/net45/Microsoft.Practices.Unity.RegistrationByConvention.XML",
-        "lib/net45/Microsoft.Practices.Unity.xml",
-        "lib/portable-net45+wp80+win8+wpa81+MonoAndroid10+MonoTouch10/Microsoft.Practices.Unity.dll",
-        "lib/portable-net45+wp80+win8+wpa81+MonoAndroid10+MonoTouch10/Microsoft.Practices.Unity.xml",
-        "lib/win8/Microsoft.Practices.Unity.dll",
-        "lib/win8/Microsoft.Practices.Unity.RegistrationByConvention.dll",
-        "lib/win8/Microsoft.Practices.Unity.RegistrationByConvention.pri",
-        "lib/win8/Microsoft.Practices.Unity.RegistrationByConvention.XML",
-        "lib/win8/Microsoft.Practices.Unity.xml",
-        "lib/wp80/Microsoft.Practices.Unity.dll",
-        "lib/wp80/Microsoft.Practices.Unity.RegistrationByConvention.dll",
-        "lib/wp80/Microsoft.Practices.Unity.RegistrationByConvention.XML",
-        "lib/wp80/Microsoft.Practices.Unity.xml",
         "Unity.4.0.1.nupkg",
         "Unity.4.0.1.nupkg.sha512",
         "Unity.nuspec",
-        "UnityConfiguration30.xsd"
+        "UnityConfiguration30.xsd",
+        "lib/net45/Microsoft.Practices.Unity.Configuration.XML",
+        "lib/net45/Microsoft.Practices.Unity.Configuration.dll",
+        "lib/net45/Microsoft.Practices.Unity.RegistrationByConvention.XML",
+        "lib/net45/Microsoft.Practices.Unity.RegistrationByConvention.dll",
+        "lib/net45/Microsoft.Practices.Unity.dll",
+        "lib/net45/Microsoft.Practices.Unity.xml",
+        "lib/portable-net45+wp80+win8+wpa81+MonoAndroid10+MonoTouch10/Microsoft.Practices.Unity.dll",
+        "lib/portable-net45+wp80+win8+wpa81+MonoAndroid10+MonoTouch10/Microsoft.Practices.Unity.xml",
+        "lib/win8/Microsoft.Practices.Unity.RegistrationByConvention.XML",
+        "lib/win8/Microsoft.Practices.Unity.RegistrationByConvention.dll",
+        "lib/win8/Microsoft.Practices.Unity.RegistrationByConvention.pri",
+        "lib/win8/Microsoft.Practices.Unity.dll",
+        "lib/win8/Microsoft.Practices.Unity.xml",
+        "lib/wp80/Microsoft.Practices.Unity.RegistrationByConvention.XML",
+        "lib/wp80/Microsoft.Practices.Unity.RegistrationByConvention.dll",
+        "lib/wp80/Microsoft.Practices.Unity.dll",
+        "lib/wp80/Microsoft.Practices.Unity.xml"
       ]
     }
   },
@@ -247,9 +245,9 @@
     "": [
       "Jones.FileLogger >= 1.0.0-CI00004",
       "Jones.Logger >= 1.0.0-CI00004",
-      "Jones.Utilities >= 1.0.0-CI00001",
+      "Jones.Utilities >= 1.0.0-CI00003",
       "Moq >= 4.2.1510.2205",
-      "Newtonsoft.Json >= 8.0.0",
+      "Newtonsoft.Json >= 8.0.3",
       "Unity >= 4.0.1"
     ],
     ".NETFramework,Version=v4.6": []

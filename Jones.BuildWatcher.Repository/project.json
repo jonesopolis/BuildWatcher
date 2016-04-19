@@ -1,12 +1,12 @@
 ﻿{
-  "supports": { },
+  "supports": {},
   "dependencies": {
-    "Jones.Utilities": "1.0.0-CI00001"
+    "Jones.Utilities": "1.0.0-CI00003"
   },
   "frameworks": {
-    ".net46": { }
+    ".net46": {}
   },
   "runtimes": {
-    "win": { }
+    "win": {}
   }
 }

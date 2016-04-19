@@ -42,7 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Build.cs" />
+    <Compile Include="InProcessBuildResult.cs" />
+    <Compile Include="FailedBuildResult.cs" />
+    <Compile Include="IBuildResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SuccessBuildResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="project.json" />

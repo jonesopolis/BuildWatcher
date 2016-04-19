@@ -6,91 +6,47 @@
         xmlns:local="clr-namespace:Jones.BuildWatcher"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Height="350" Width="525">
+        Height="350"
+        Width="525">
 
     <Window.Resources>
-        <local:ColorValueConverter x:Key="ColorValueConverter"/>
         <local:TimeStringConverter x:Key="TimeStringConverter" />
     </Window.Resources>
 
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="../Assets/Background.jpg" />
+        </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="3*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="2*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="6*" />
-            <ColumnDefinition Width="6*" />
+            <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Grid.Background>
-            <ImageBrush ImageSource="../Assets/Background.jpg"/>
-        </Grid.Background>
-
-        <Viewbox
-                Grid.Row="0"
-                Grid.Column="1"
-                Grid.ColumnSpan="2">
-
-            <TextBlock 
-                    FontWeight="Bold"
-                    Text="{Binding CurrentBuild.BuildName}"
-                    Typography.Capitals="AllSmallCaps" />
-
-        </Viewbox>
-
-        <Ellipse
-                Grid.Column="1"
-                Grid.Row="1"
-                Stretch="Uniform"
-                DockPanel.Dock="Left"
-                Fill="{Binding CurrentBuild.IsGreen, Converter={StaticResource ColorValueConverter}}"
-                StrokeThickness="5"
-                Stroke="#000000"/>
-
-        <Grid Grid.Row="1"
-              Grid.Column="2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-
-           
-
-            <Viewbox
-                Grid.Row="0">
-
-                <TextBlock 
-                    Text="{Binding CurrentBuild.LastCompleted, Converter={StaticResource TimeStringConverter}}"
-                    Typography.Capitals="AllSmallCaps" 
-                    Margin="50 0 50 0"/>
-
-            </Viewbox>
-
-            <Viewbox
-                Grid.Row="1">
-
-                <TextBlock 
-                    Text="{Binding CurrentBuild.PersonName}"
-                    Typography.Capitals="AllSmallCaps"  />
-
-            </Viewbox>
-        </Grid>
-
-        <Viewbox
-            Margin="20"
-            Grid.Row="2"
-            Grid.ColumnSpan="2"
-            Grid.Column="1">
+        <Border Grid.Row="0" Grid.Column="0" BorderBrush="Black" BorderThickness="2 2 2 2" />
+        <Border Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="0 2 2 2" />
+        <Border Grid.Row="0" Grid.Column="2" BorderBrush="Black" BorderThickness="0 2 2 2" />
+        <Border Grid.Row="1" Grid.Column="0" BorderBrush="Black" BorderThickness="2 0 2 2" />
+        <Border Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="0 0 2 2" />
+        <Border Grid.Row="1" Grid.Column="2" BorderBrush="Black" BorderThickness="0 0 2 2" />
+        <Border Grid.Row="2" Grid.Column="0" BorderBrush="Black" BorderThickness="2 0 2 2" />
+        <Border Grid.Row="2" Grid.Column="1" BorderBrush="Black" BorderThickness="0 0 2 2" />
+        <Border Grid.Row="2" Grid.Column="2" BorderBrush="Black" BorderThickness="0 0 2 2" />
+        
+        <Viewbox 
+                 Grid.Row="3"
+                 Grid.ColumnSpan="3">
             
-            <TextBlock  
-                   Text="{Binding CurrentTime, StringFormat='{}{0:hh:mm:ss}'}"
-                   VerticalAlignment="Center"       
-                   FontWeight="Bold"
-                   HorizontalAlignment="Center"/>
+            <TextBlock Text="{Binding CurrentTime, StringFormat='{}{0:hh:mm:ss}'}"
+                       VerticalAlignment="Center"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center" />
         </Viewbox>
     </Grid>
 </Window>

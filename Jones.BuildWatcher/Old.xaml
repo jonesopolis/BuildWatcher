@@ -1,0 +1,76 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <!--<Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="6*" />
+            <ColumnDefinition Width="6*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="../Assets/Background.jpg" />
+        </Grid.Background>
+
+        <Viewbox Grid.Row="0"
+                 Grid.Column="1"
+                 Grid.ColumnSpan="2">
+
+            <TextBlock FontWeight="Bold"
+                       Text="{Binding CurrentBuild.BuildName}"
+                       Typography.Capitals="AllSmallCaps" />
+
+        </Viewbox>
+
+        <Ellipse Grid.Column="1"
+                 Grid.Row="1"
+                 Stretch="Uniform"
+                 DockPanel.Dock="Left"
+                 Fill="{Binding CurrentBuild.IsGreen, Converter={StaticResource ColorValueConverter}}"
+                 StrokeThickness="5"
+                 Stroke="#000000" />
+
+        <Grid Grid.Row="1"
+              Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+
+
+            <Viewbox Grid.Row="0">
+
+                <TextBlock Text="{Binding CurrentBuild.LastCompleted, Converter={StaticResource TimeStringConverter}}"
+                           Typography.Capitals="AllSmallCaps"
+                           Margin="50 0 50 0" />
+
+            </Viewbox>
+
+            <Viewbox Grid.Row="1">
+
+                <TextBlock Text="{Binding CurrentBuild.PersonName}"
+                           Typography.Capitals="AllSmallCaps" />
+
+            </Viewbox>
+        </Grid>
+
+        <Viewbox Margin="20"
+                 Grid.Row="2"
+                 Grid.ColumnSpan="2"
+                 Grid.Column="1">
+
+            <TextBlock Text="{Binding CurrentTime, StringFormat='{}{0:hh:mm:ss}'}"
+                       VerticalAlignment="Center"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center" />
+        </Viewbox>
+    </Grid>-->
+</ResourceDictionary>
