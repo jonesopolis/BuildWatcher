@@ -47,7 +47,7 @@ namespace Jones.BuildWatcher
                 _liveConfig.Watch();
 
                 var timer = new Timer();
-                timer.Interval = 2000;
+                timer.Interval = 1000;
                 timer.Elapsed += change;
                 timer.Start();
 
@@ -77,7 +77,7 @@ namespace Jones.BuildWatcher
                 return;
             }
 
-            if (_currentIndex == Items.Count)
+            if (_currentIndex >= Items.Count)
             {
                 _currentIndex = 0;
             }

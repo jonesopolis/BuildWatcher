@@ -86,7 +86,7 @@ namespace Jones.BuildWatcher.Repository
             timer.Elapsed += (s,e) => model.BuildTime = model.BuildTime.Add(TimeSpan.FromSeconds(1));
             timer.Start();
             
-            model.PreviousBuildSucceeded = previous.BuildFinished;
+            model.PreviousBuildSucceeded = previous.Status == BuildStatus.Succeeded;
 
             return model;
         }
