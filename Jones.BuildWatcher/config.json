@@ -1,12 +1,17 @@
 ﻿[
   {
     "Project": "CSI",
-    "Build": "BS - Lending.Framework - dev",
+    "Build": "BS - CVS - Client - dev",
+    "FriendlyName": "CVS"
+  },
+  {
+    "Project": "CSI",
+    "Build": "BS - Lending.Framework.Wpf - alpha",
     "FriendlyName": "Lending Framework"
   },
   {
     "Project": "Passport Workstation 2.0",
-    "Build": "Customers and Accounts - Alpha",
+    "Build": "Customers and Accounts - Beta",
     "FriendlyName": "Customers and Accounts"
   }
 ]

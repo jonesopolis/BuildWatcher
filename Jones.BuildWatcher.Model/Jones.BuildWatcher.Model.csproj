@@ -41,12 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Build.cs" />
-    <Compile Include="InProcessBuildResult.cs" />
+    <Compile Include="InProgressBuildResult.cs" />
     <Compile Include="FailedBuildResult.cs" />
-    <Compile Include="IBuildResult.cs" />
+    <Compile Include="BuildResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SuccessBuildResult.cs" />
+    <Compile Include="UnknownBuildResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="project.json" />

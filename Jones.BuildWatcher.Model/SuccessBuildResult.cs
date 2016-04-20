@@ -1,44 +1,17 @@
 ﻿using System;
-using Jones.Utilities;
 
 namespace Jones.BuildWatcher.Model
 {
-    public sealed class SuccessBuildResult : NotifyBase, IBuildResult
+    public sealed class SuccessBuildResult : BuildResult
     {
-        private string _buildName;
-        private DateTime _lastCompleted;
-        private string _personName;
-        private string _friendlyName;
-        private string _projectName;
+        private DateTime _completed;
 
-        public string ProjectName
-        {
-            get { return _projectName; }
-            set { SetProperty(ref _projectName, value); }
-        }
+        public SuccessBuildResult(string projectName, string buildName, string friendlyName) : base(projectName, buildName, friendlyName) {}
 
-        public string BuildName
+        public DateTime Completed
         {
-            get { return _buildName; }
-            set { SetProperty(ref _buildName, value); }
-        }
-
-        public string FriendlyName
-        {
-            get { return _friendlyName; }
-            set { SetProperty(ref _friendlyName, value); }
-        }
-
-        public DateTime LastCompleted
-        {
-            get { return _lastCompleted; }
-            set { SetProperty(ref _lastCompleted, value); }
-        }
-
-        public string PersonName
-        {
-            get { return _personName; }
-            set { SetProperty(ref _personName, value); }
+            get { return _completed; }
+            set { SetProperty(ref _completed, value); }
         }
     }
 }

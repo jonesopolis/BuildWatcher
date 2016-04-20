@@ -33,7 +33,7 @@ namespace Jones.BuildWatcher
 
             _buildRepo = buildRepo;
             _logger = logger;
-            Items = new ObservableCollection<Build>();
+            Items = new ObservableCollection<BuildResult>();
 
             try
             {
@@ -68,7 +68,7 @@ namespace Jones.BuildWatcher
             set { SetProperty(ref _currentTime, value); }
         }
 
-        public ObservableCollection<Build> Items { get; } 
+        public ObservableCollection<BuildResult> Items { get; } 
 
         private void change(object sender, ElapsedEventArgs elapsedEventArgs)
         {
@@ -77,14 +77,14 @@ namespace Jones.BuildWatcher
                 return;
             }
 
-            if (++_currentIndex == Items.Count)
+            if (_currentIndex == Items.Count)
             {
                 _currentIndex = 0;
             }
             
-            var result = _buildRepo.GetSingleBuild(Items[_currentIndex].ProjectName, Items[_currentIndex].BuildName);
+            Items[_currentIndex] = _buildRepo.GetSingleBuild(Items[_currentIndex].ProjectName, Items[_currentIndex].BuildName, Items[_currentIndex].FriendlyName);
 
-            Items[_currentIndex] = result;
+            ++_currentIndex;
         }
 
         private void initializeItems()
@@ -94,7 +94,7 @@ namespace Jones.BuildWatcher
 
             foreach (var item in _liveConfig.Configuration)
             {
-                Items.Add(new Build(item.Project, item.Build, item.FriendlyName));                   
+                Items.Add(new UnknownBuildResult(item.Project, item.Build, item.FriendlyName));                   
             }
         }
     }

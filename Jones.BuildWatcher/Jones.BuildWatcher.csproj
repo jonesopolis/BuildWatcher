@@ -70,7 +70,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BuildConfig.cs" />
-    <Compile Include="TimeStringConverter.cs" />
+    <Compile Include="Converters\BooleanColorConverter.cs" />
+    <Compile Include="Converters\TimeStringConverter.cs" />
+    <Page Include="BuildResultTemplates.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="BuildView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -80,15 +85,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="BuildVM.cs" />
-    <Compile Include="ColorValueConverter.cs" />
     <Compile Include="BuildView.xaml.cs">
       <DependentUpon>BuildView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Old.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

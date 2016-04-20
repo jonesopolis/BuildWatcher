@@ -3,42 +3,16 @@ using Jones.Utilities;
 
 namespace Jones.BuildWatcher.Model
 {
-    public sealed class FailedBuildResult : NotifyBase, IBuildResult
+    public sealed class FailedBuildResult : BuildResult
     {
-        private string _buildName;
-        private DateTime _timeFailed;
-        private string _personName;
-        private string _friendlyName;
-        private string _projectName;
+        private DateTime _failed;
 
-        public string ProjectName
+        public DateTime Failed
         {
-            get { return _projectName; }
-            set { SetProperty(ref _projectName, value); }
+            get { return _failed; }
+            set { SetProperty(ref _failed, value); }
         }
 
-        public string BuildName
-        {
-            get { return _buildName; }
-            set { SetProperty(ref _buildName, value); }
-        }
-
-        public string FriendlyName
-        {
-            get { return _friendlyName; }
-            set { SetProperty(ref _friendlyName, value); }
-        }
-
-        public DateTime TimeFailed
-        {
-            get { return _timeFailed; }
-            set { SetProperty(ref _timeFailed, value); }
-        }
-
-        public string PersonName
-        {
-            get { return _personName; }
-            set { SetProperty(ref _personName, value); }
-        }
+        public FailedBuildResult(string projectName, string buildName, string friendlyName) : base(projectName, buildName, friendlyName) {}
     }
 }

@@ -5,20 +5,19 @@ using System.Windows.Media;
 
 namespace Jones.BuildWatcher
 {
-    public class ColorValueConverter : IValueConverter
+    public sealed class BooleanColorConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             bool result;
-
-            if (!bool.TryParse(value.ToString(), out result))
+            if(!(value is bool))
             {
-                return null;
+                return false;
             }
 
-            return result
-                ? new SolidColorBrush(Colors.MediumSeaGreen)
-                : new SolidColorBrush(Colors.Red);
+            result = (bool) value;
+
+            return result ? Brushes.Green : Brushes.Red;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

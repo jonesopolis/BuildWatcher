@@ -5,12 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Jones.BuildWatcher"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:model="clr-namespace:Jones.BuildWatcher.Model;assembly=Jones.BuildWatcher.Model"
         mc:Ignorable="d"
         Height="350"
-        Width="525">
+        Width="525"
+        Name="Window">
 
     <Window.Resources>
-        <local:TimeStringConverter x:Key="TimeStringConverter" />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="BuildResultTemplates.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+
+        </ResourceDictionary>
     </Window.Resources>
 
     <Grid>
@@ -38,6 +46,43 @@
         <Border Grid.Row="2" Grid.Column="0" BorderBrush="Black" BorderThickness="2 0 2 2" />
         <Border Grid.Row="2" Grid.Column="1" BorderBrush="Black" BorderThickness="0 0 2 2" />
         <Border Grid.Row="2" Grid.Column="2" BorderBrush="Black" BorderThickness="0 0 2 2" />
+
+        <ContentPresenter Grid.Row="0"
+                          Grid.Column="0"
+                          Content="{Binding Items[0]}"
+                          ContentTemplate="{StaticResource BuildResult}" />
+        <ContentPresenter Grid.Row="0"
+                          Grid.Column="1"
+                          Content="{Binding Items[1]}"
+                          ContentTemplate="{StaticResource BuildResult}" />
+        <ContentPresenter Grid.Row="0"
+                          Grid.Column="2"
+                          Content="{Binding Items[2]}"
+                          ContentTemplate="{StaticResource BuildResult}"/>
+        <ContentPresenter Grid.Row="1"
+                          Grid.Column="0"
+                          Content="{Binding Items[3]}"
+                          ContentTemplate="{StaticResource BuildResult}"/>
+        <ContentPresenter Grid.Row="1"
+                          Grid.Column="1"
+                          Content="{Binding Items[4]}"
+                          ContentTemplate="{StaticResource BuildResult}"/>
+        <ContentPresenter Grid.Row="1"
+                          Grid.Column="2"
+                          Content="{Binding Items[5]}"
+                          ContentTemplate="{StaticResource BuildResult}"/>
+        <ContentPresenter Grid.Row="2"
+                          Grid.Column="0"
+                          Content="{Binding Items[6]}"
+                          ContentTemplate="{StaticResource BuildResult}" />
+        <ContentPresenter Grid.Row="2"
+                          Grid.Column="1"
+                          Content="{Binding Items[7]}"
+                          ContentTemplate="{StaticResource BuildResult}"/>
+        <ContentPresenter Grid.Row="2"
+                          Grid.Column="2"
+                          Content="{Binding Items[8]}"
+                          ContentTemplate="{StaticResource BuildResult}"/>
         
         <Viewbox 
                  Grid.Row="3"

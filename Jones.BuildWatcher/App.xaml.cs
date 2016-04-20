@@ -16,7 +16,7 @@ namespace Jones.BuildWatcher
         {
             IUnityContainer unity = new UnityContainer();
 
-            var repository = false
+            var repository = true
                 ? new BuildRepository("http://tfs.csiweb.com:8080/tfs/DefaultCollection")
                 : getMock();
             
@@ -44,17 +44,16 @@ namespace Jones.BuildWatcher
                                         };
 
 
-            mock.Setup(r => r.GetSingleBuild(It.IsAny<string>(), It.IsAny<string>()))
+            mock.Setup(r => r.GetSingleBuild(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
                 .Returns<string, string>((one, two) =>
                 {
                     var rand = new Random();
 
-                    var b = new Build(one, two, "test test");
+                    var b = new SuccessBuildResult(one, two, "test test");
                     b.BuildName = two;
                     b.PersonName = names[rand.Next(0, names.Count() - 1)];
-                    b.LastCompleted = DateTime.Now.AddDays(-1 * rand.Next(0, 3)).AddHours(rand.Next(0, 10)).AddMinutes(rand.Next(0,60));
-                    b.IsGreen = rand.Next(0, 5) % 2 == 0;
-
+                    b.Completed = DateTime.Now.AddDays(-1 * rand.Next(0, 3)).AddHours(rand.Next(0, 10)).AddMinutes(rand.Next(0,60));
+                   
                     return b;
                 });
 
